@@ -1,0 +1,13 @@
+<div class="shopPar">
+	<div class="shopItem" *ngFor="let item of shopItems; let ind = index;">
+		<div class="itemHolder">
+			<img [src]="images[ind]" height="100%" width="100%"/>
+			<div class="pricepart">
+				<div style="font-size:12px;margin-left:5px;">{{item.name}}</div>
+				<div ><span>&#8377;</span>{{item.price - (item.price*item.discount/100)}}<span style="margin-left:10px;font-size:12px;text-decoration: line-through;"><span>&#8377;</span>{{item.price}}</span><span style="margin-left:10px;font-size:12px;color:green"><b>{{item.discount}}% off</b></span></div>
+				<div style="text-align:center;width:100%;padding:5px;">
+					<button class="btn" [disabled]="!btnStatus[ind]" (click)="addToCart(item,ind)">Add to cart</button></div>
+			</div>
+		</div>
+	</div>
+</div>

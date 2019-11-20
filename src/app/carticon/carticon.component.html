@@ -1,0 +1,5 @@
+<div class="cartClass" (click)="gotoCart()">
+	<fa-icon [icon]="faCart" size="lg" [styles]="{'color': 'white' ,'margin':'12px'}">
+	</fa-icon>
+  <div *ngIf="cartCount>0" class="count">{{cartCount}}</div>
+</div>

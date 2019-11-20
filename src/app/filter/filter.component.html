@@ -1,0 +1,12 @@
+<div class="filterPar">
+	<p><b>Filters</b></p>
+	<form #filterForm="ngForm" (ngSubmit)="setRanges(filterForm.value)">
+		<div class="range">&#8377;0
+			<input id="myRange" type="range" min="1" max="1000" class="slider" [(ngModel)]="filterend" name="range"
+				ngModel />
+			&#8377;1000
+		</div>
+		<div style="width:70%;text-align:center">{{filterend}}</div>
+		<div style="text-align:center;width:70%;"><button type="submit" class="applybtn">Apply</button></div>
+	</form>
+</div>

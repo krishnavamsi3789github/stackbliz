@@ -1,0 +1,50 @@
+<div class="header">
+	<fa-icon [icon]="faStar" [styles]="{'stroke': 'red', 'color': 'yellow' , 'margin':'5px'}" size="2x"
+		(click)="goHome()"></fa-icon>
+	<app-search></app-search>
+</div>
+<div class="cardBody">
+	<div class="cartList">
+		<div class="items" *ngFor="let item of shopItems;let ind = index;">
+			<img src="{{item.img}}" class="imgCls" height="80%" width="80%"/>
+			<div class="details">
+				<div>{{item.Item.name}}</div>
+				<div>
+					<span>&#8377;</span>{{item.Item.price - (item.Item.price*item.Item.discount/100)}}<span style="margin-left:10px;font-size:12px;text-decoration: line-through;"><span>&#8377;</span>{{item.Item.price}}</span><span style="margin-left:10px;font-size:12px;color:green"><b>{{item.Item.discount}}% off</b></span>
+					<span>
+          <span class="btnDiv">
+          <button class="addRem" (click)="decrement(item)">-</button>
+          <input class="countDiv" type="text" disabled value="{{item.count}}"/>
+           <button class="addRem" (click)="increment(item)">+</button>
+          </span>
+					</span>
+				</div>
+			</div>
+			<div class="rmDiv">
+				<button class="remBtn">REMOVE</button>
+			</div>
+		</div>
+	</div>
+	<div class="totalOrder">
+		<div class="outerBox">
+			<table>
+				<tr>
+					<td>PRICE DETAILS</td>
+          <td></td>
+				</tr>
+				<tr>
+					<td>Price({{shopItems.length}})</td>
+					<td>{{totalCost}}</td>
+				</tr>
+				<tr>
+					<td>Discount</td>
+					<td>{{totalDiscount}}</td>
+				</tr>
+				<tr>
+					<td>Total Payable</td>
+					<td>{{totalCost-totalDiscount}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
